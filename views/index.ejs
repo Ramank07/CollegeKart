@@ -1,0 +1,152 @@
+<div class="cards-container container flex">
+  <% data.forEach(post => { %>
+   
+ 
+  <div class="card">
+    <div class="card-header">
+      <!-- <img
+        src="https://rukminim2.flixcart.com/image/850/1000/xif0q/cycle/n/x/l/old-skool-26t-cycle-26-23-east-coast-115-single-speed-original-imagmzejgzzyd2ga.jpeg?q=90&crop=false/400x200" width="400px" height="200px"
+        alt="product image"
+        id="product-image"
+      /> -->
+    </div>
+    <div class="card-content">
+      <h4 id="product-title">
+        <ul>
+          <li>Title: <%=post.title %> <li>
+          <li>Price: <%= post.price %> </li>
+        </ul>
+      </h4>
+      
+      <p class="product-desc" id="product-desc">
+       <%= post.description %>
+      </p>
+      <div class="cardFooter flex">
+        <div class="postedAt">
+          Posted On:- <%= post.createdAt.toLocaleDateString() %>
+        </div>
+        <div class="view">
+         <a  href="/post/<%= post._id %> ">View </a>
+        </div>
+
+    </div>
+  </div>
+</div>
+
+<% }) %>
+</div>
+
+  
+
+
+ 
+
+
+
+
+<!-- 
+
+-->
+
+
+
+
+ <!-- <div class="card-header">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxjGy9G9OUSGYBTDr7hbxXA0t847hYEL4kcw&s"
+            alt="product image"
+            id="product-image"
+          />
+        </div>
+        <div class="card-content">
+          <h4 id="product-title">
+            <ul>
+              <li>ProductName :</li>
+              <li>MRP :</li>
+            </ul>
+          </h4>
+          <h4 class="contact-detail" id="contact-detail">
+            contact Details 4/3/24
+          </h4>
+          <p class="product-desc" id="product-desc">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Voluptatem officiis velit voluptatibus vero cumque accusantium
+            animi laborum modi iste unde.
+          </p>
+        </div> --> 
+    <!-- <div class="card">
+        <div class="card-header">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTS_m6bhKq0ZKB9MirNzstvBwTtPyfLE85jKw&s"
+            alt="product image"
+            id="product-image"
+          />
+        </div>
+        <div class="card-content">
+          <h4 id="product-title">
+            <ul>
+              <li>ProductName :</li>
+              <li>MRP :</li>
+            </ul>
+          </h4>
+          <h4 class="contact-detail" id="contact-detail">
+            contact Details 4/3/24
+          </h4>
+          <p class="product-desc" id="product-desc">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Voluptatem officiis velit voluptatibus vero cumque accusantium
+            animi laborum modi iste unde.
+          </p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4ByJ512FDcDk9JEVK7a43dFoTLCgvGuZbpg&s"
+            alt="product image"
+            id="product-image"
+          />
+        </div>
+        <div class="card-content">
+          <h4 id="product-title">
+            <ul>
+              <li>ProductName :</li>
+              <li>MRP :</li>
+            </ul>
+          </h4>
+          <h4 class="contact-detail" id="contact-detail">
+            contact Details 4/3/24
+          </h4>
+          <p class="product-desc" id="product-desc">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Voluptatem officiis velit voluptatibus vero cumque accusantium
+            animi laborum modi iste unde.
+          </p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHuhRKQjLHikQVoCiQk0LO7TmP4huIL8V6OQ&s"
+            alt="product image"
+            id="product-image"
+          />
+        </div>
+        <div class="card-content">
+          <h4 id="product-title">
+            <ul>
+              <li>ProductName :</li>
+              <li>MRP :</li>
+            </ul>
+          </h4>
+          <h4 class="contact-detail" id="contact-detail">
+            contact Details 4/3/24
+          </h4>
+          <p class="product-desc" id="product-desc">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Voluptatem officiis velit voluptatibus vero cumque accusantium
+            animi laborum modi iste unde.
+          </p>
+        </div>
+      </div>
+      <div class="card"> -->

@@ -1,0 +1,61 @@
+
+<div class="  container flex dashboard-flex ">
+    <h2>Posts</h2>
+    <a href="/add-post" class=" search-button"> + Add Post</a>
+</div>
+<div class="cards-container container flex">
+    <% data.forEach(post => { %>
+     
+   
+        <div class="card">
+            <div class="card-header">
+              <img
+                src="https://rukminim2.flixcart.com/image/850/1000/xif0q/cycle/n/x/l/old-skool-26t-cycle-26-23-east-coast-115-single-speed-original-imagmzejgzzyd2ga.jpeg?q=90&crop=false/400x200" width="400px" height="200px"
+                alt="product image"
+                id="product-image"
+              />
+            </div>
+            <div class="card-content">
+              <h4 id="product-title">
+                <ul>
+                  <li>Title: <%=post.title %> <li>
+                  <li>Price: <%= post.price %> </li>
+                </ul>
+              </h4>
+              
+              <p class="product-desc" id="product-desc">
+                <%= post.description %>
+              </p>
+              <div class="cardFooter flex">
+                <div class="postedAt">
+                  Posted:- <%= post.createdAt.toLocaleDateString() %>
+                </div>
+                <div class="view">
+                 <a  href="/post/<%= post._id %> ">View </a>
+                </div>
+                
+
+        
+            </div>
+            <div class="cardFooter flex">
+                <a href="/edit-post/<%= post._id %>" class="view">Edit Post</a>
+                
+                 <form action="/delete-post/<%= post._id %>?_method=DELETE" method="POST">
+                    <input type="submit" value="Delete" class="view-form">
+                 </form>
+                
+            </div>
+          </div>
+        </div>
+  
+  <% }) %>
+  </div>
+  
+    
+  
+  
+   
+  
+  
+  
+  

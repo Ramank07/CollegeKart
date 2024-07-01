@@ -1,0 +1,36 @@
+<a href="/dashboard" class="black" >&larr; Back </a>
+<div class="admin-title">
+    <h2>Edit Post</h2>
+</div>
+
+<form action="/delete-post/<%= data._id %>?_method=Delete" method="POST">
+   <input type="submit" value="Delete" class="delete-btn"> 
+</form>
+
+
+<form action="/edit-post/<%= data._id %>?_method=PUT" method="POST">
+
+<!-- image -->
+<!-- <label for="title"><b>Title</b></label>
+<input type="text" placeholder="Title" name="title"> -->
+
+
+<label for="title"><b>Title:</b></label>
+<input type="text" placeholder="Enter Title" name="title" value="<%= data.title %>">
+
+<label for="price"><b>Price:</b></label>
+<input type="number" placeholder="Enter price" name="price" value="<%= data.price %>">
+
+<label for="number"><b>Number:</b></label>
+<input type="text" placeholder="Enter Phone Number" name="number" value="<%= data.number %>">
+
+<label for="upiId"><b>UPI_ID:</b></label>
+<input type="text" placeholder="Enter upi_id" name="upiId" value="<%= data.upiId %>">
+
+<label for="description"><b>description:</b></label>
+<textarea  name="description" cols="50" rows="10" value="<%= data.description %>"></textarea>
+
+<input type="submit" value="Update" class="search-button">
+
+
+</form>

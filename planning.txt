@@ -1,0 +1,44 @@
+e-commerce Application
+
+what?
+Application where user can sell and buy the product
+
+models?
+routes?
+
+Application functionality
+1.users can sign_up / sign_in
+2.product present
+ .image of product
+ .MRP
+
+3.click on product gives detail about the product
+ .image of product
+ .MRP
+ .UPI id
+ .detail of seller
+
+4.user can sign in through unique email
+5.admin can delete /post /update product
+6.user can change password
+
+
+7.can chat with each other->soket.io
+
+----------
+Routes
+1.user Authentication:
+  /signup: POST- get new user account.
+  /signin: POST-  login to existing account.
+
+2.product:
+  /product: GET- product detail.
+    
+3.user profile:
+ /profile: GET-user profile data.
+ /profile/password: PUT-change user password.
+ /user_product: POST-user can post new product.
+ /user_product/:product_id : DELETE - user can delete  product. 
+ /user_product/:product_id :  PUT- user can update product. 
+ /user/:logout : user logout of the website
+
