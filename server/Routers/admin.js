@@ -274,22 +274,36 @@ router.get('/edit-post/:id', authMiddleware, async (req, res) => {
 router.post('/register',async(req,res)=>{
     
     try {
-        const {username ,email, password} = req.body;
+        const { username,email,password} = req.body;
         
+        if (!email) {
+          return res.status(400).json({ message: 'Email is required' });
+      }
+
+      // Check if email already exists
+      const existingUser = await User.findOne({ email });
+        // console.log(existingUser);
+      if (existingUser) { 
+          return res.status(409).json({ message: 'Email already in use' });
+      }
+      // console.log(email);
         const hashedPassword=await bcrypt.hash(password,10);
         
         try {
-           
+          // console.log(email);
             const user=await User.create({username,email,password:hashedPassword});
+            console.log(user)
            
-            res.status(201).json({message:'User Created',user});
+           return  res.status(201).json({message:'User Created',user});
                 
         } catch (error) {
+          // console.log(email);
+          console.log(error)
             if(error.code===11000){
-                res.status(409).json({message:'User already in use'});
+               return res.status(409).json({message:'User already in use'});
             }
 
-                res.status(500).json({message:'internal server error',error});
+               return res.status(500).json({message:'internal server error',error});
         }
 
     } catch (error) {

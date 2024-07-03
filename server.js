@@ -1,15 +1,23 @@
 require('dotenv').config();
 const express=require('express');
+const expressLayout=require('express-ejs-layouts')
+const methodOverride=require('method-override');
+const cookieParser=require('cookie-parser')
+const session=require('express-session')
+const MongoStore=require('connect-mongo')
 const bodyParser=require('body-parser')
 const app=express();
-const methodOverride=require('method-override');
-const session=require('express-session')
-const expressLayout=require('express-ejs-layouts')
-const cookieParser=require('cookie-parser')
-const MongoStore=require('connect-mongo')
 
-app.use(bodyParser.urlencoded({ extended: true })); // Add this line
-app.use(bodyParser.json());
+
+
+const connectDB=require('./server/config/db');
+const { Store } = require('express-session');
+
+//connect to DB
+connectDB();
+
+app.use(express.urlencoded({ extended: true })); // Add this line
+app.use(express.json());
 app.use(cookieParser());
 app.use(methodOverride('_method'));
 
@@ -22,16 +30,14 @@ app.use(session({
     }),
 }))
 
-const connectDB=require('./server/config/db');
-const { Store } = require('express-session');
 
-//connect to DB
-connectDB();
+
+
 
 
  app.use(express.static('public'));
-//templating engine
 
+//templating engine
 app.use(expressLayout);
 app.set('layout','./layouts/main');
 app.set('view engine','ejs');
