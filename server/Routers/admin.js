@@ -49,7 +49,27 @@ router.get('/admin',async(req,res)=>{
         
         }
         
-        res.render('admin/index.ejs',{local,layout:adminLayout});
+        res.render('admin/signin.ejs',{local,layout:adminLayout});
+    } catch (error) {
+        console.log(error)
+    }
+    
+});
+/*
+->GET/
+-->register-login Page
+
+*/
+router.get('/register',async(req,res)=>{
+    
+    try {
+        const local={
+            title:"Register",
+            description:" buy and sell something "
+        
+        }
+        
+        res.render('admin/register.ejs',{local,layout:adminLayout});
     } catch (error) {
         console.log(error)
     }
@@ -292,10 +312,11 @@ router.post('/register',async(req,res)=>{
         try {
           // console.log(email);
             const user=await User.create({username,email,password:hashedPassword});
-            console.log(user)
+            // console.log(user)
            
-           return  res.status(201).json({message:'User Created',user});
-                
+          //  return  res.status(201).json({message:'User Created',user});
+              
+          res.redirect('/admin')
         } catch (error) {
           // console.log(email);
           console.log(error)
