@@ -100,7 +100,7 @@ router.post('/admin',async(req,res)=>{
        
        const token=jwt.sign({userId:user._id},jwtSecret);
        res.cookie('token',token,{httpOnly:true});
-       res.redirect('/dashboard');
+       return res.redirect('/dashboard');
 
        
     } catch (error) {
@@ -199,12 +199,12 @@ router.post('/add-post',authMiddleware,async(req,res)=>{
 
             });
             await post.create(newPost);
-            re.redirect('/dashboard')
+            return res.redirect('/dashboard')
         } catch (error) {
             console.log(error);
         }
       
-      res.redirect('/dashboard');
+     return res.redirect('/dashboard');
       
     } catch (error) {
      console.log(error)
@@ -240,7 +240,7 @@ router.get('/edit-post/:id', authMiddleware, async (req, res) => {
   
   /**
    * PUT /
-   * Admin - Create New Post
+   * Admin - Edit  Post
   */
   router.put('/edit-post/:id', authMiddleware, async (req, res) => {
     try {
@@ -254,7 +254,7 @@ router.get('/edit-post/:id', authMiddleware, async (req, res) => {
         updatedAt: Date.now()
       });
   
-      res.redirect('/dashboard');
+    return  res.redirect('/dashboard');
   
     } catch (error) {
       console.log(error);
@@ -276,7 +276,7 @@ router.get('/edit-post/:id', authMiddleware, async (req, res) => {
     try {
       await post.deleteOne( { _id: req.params.id } );
       
-      res.redirect('/dashboard');
+      return res.redirect('/dashboard');
     } catch (error) {
       console.log(error);
     }
@@ -316,7 +316,7 @@ router.post('/register',async(req,res)=>{
            
           //  return  res.status(201).json({message:'User Created',user});
               
-          res.redirect('/admin')
+         return res.redirect('/admin')
         } catch (error) {
           // console.log(email);
           console.log(error)
@@ -340,7 +340,7 @@ router.post('/register',async(req,res)=>{
 
 router.get('/logout',(req,res)=>{
 
-    res.clearCookie('tooken');
+    res.clearCookie('token');
     res.redirect('/');
 
 })

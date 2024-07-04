@@ -14,11 +14,11 @@
 body{
     font-family: "Poppins",sans-serif;
     color: var(--primary-text-color);
-    background-color: rgb(237, 237, 237);
+    background-color: #466da1;
 }
 
 a{
-    /* color: white; */
+    color: white;
     text-decoration: none;
 }
 a:hover{
@@ -120,17 +120,20 @@ main{
     /* margin: 12px; */
     
     width: 360px;
-    min-height: 400px;
+    min-height: 474px;
+    max-height: 480px;
     box-shadow: 0 0 4px #0b0b0b;
     border-radius: 4px;
     cursor: pointer;
-    background-color: #fff;
+    background-color: #00000080;
+    color: #BFA181;
     overflow: hidden;
     transition: all 0.3s ease;
 }
 .card:hover{
     box-shadow: 1px 1px 8px #000000;
     background-color: #f9fdff;
+    color: black;
     transform: translateY(-2px);
 }
 .card-header img{
@@ -206,4 +209,118 @@ main{
     border-radius: 4px;
     cursor: pointer;
     font-family: "Roboto", sans-serif;
+}
+
+.secondary-button{
+    border: 0.5px solid var(--secondary-text-color);
+    border-radius: 6px;
+    font-weight: 600;
+    color: var(--primary-text-color);
+    padding: 12px 24px;
+    transition: 0.2s ease-out;
+  }
+  .secondary-button:hover{
+    border-color: var(--accent-color);
+    color: var(--accent-color) !important;
+    
+  }
+
+
+  
+.img{
+  /* margin:0%; */
+  background-image: url("/images/bit_mesra.jpeg");
+  background-color: #cccccc;
+  height: 1000px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* position: relative; */
+  margin-top: -40px ;
+  margin-bottom: -40px;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    width: 400px;
+    /* border: 1px solid black; */
+    align-items: center;
+    margin: auto;
+    margin-top:0px;
+    background-color: #00000080;
+    box-shadow: inset -5px -5px #00000080;
+    border-radius:25px ;
+}
+.form h1{
+    color: #ffffff;
+    font-size: 2rem;
+    border-bottom: 4px solid  rgba(255, 255, 255, 0.5);
+    margin: 30px;
+}
+
+.box{
+    padding: 12px;
+    margin: 20px;
+    width: 65%;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    background-color: #00000080;
+    box-shadow: inset -3px -3px #00000080;
+    color: #ffffff;
+    font-size: 1rem;
+    
+}
+
+#submit{
+    padding:10px 20px;
+    margin-top: 30px;
+    width: 50%;
+    background: #00000080;
+    color:  #ede8e8;;
+    box-shadow: inset -3px -3px #00000080;
+    outline:none;
+    border: none;
+    border-radius: 20px;
+    font-size: 1rem;
+}
+#submit:hover{
+    cursor: pointer;
+    background: #ffffff1a;
+    color: white;
+}
+::placeholder{
+    color: #e7e1e1;
+    opacity: 0.9;
+}
+.label{
+    color: #d1d8df;
+    margin-bottom: -10px;
+    margin-top: 10px;
+}
+.register{
+    
+   margin-top: 10px;
+    /* border: none;
+    outline: none;
+    border-radius: 20px;
+    background-color: #000000bb;
+    box-shadow: inset -3px -3px #00000080;
+    color: #ffffff;
+    font-size: 1rem;
+   margin-left: 65%; */
+}
+
+.form h2{
+    color: #ffffff;
+    font-size: 2rem;
+    border-bottom: 4px solid  rgba(255, 255, 255, 0.5);
+    margin: 10px;
+}
+.dashboard-flex {
+    margin-bottom:10px ;
+}
+.add-post{
+    margin-right: 75px;
 }
