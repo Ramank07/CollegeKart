@@ -2,5 +2,6 @@
   "files.associations": {
     "*.ejs": "html",
     "ostream": "cpp"
-  }
+  },
+  "liveServer.settings.port": 5501
 }

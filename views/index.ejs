@@ -21,16 +21,17 @@
       <p class="product-desc" id="product-desc">
        <%= post.description %>
       </p>
-      <div class="cardFooter flex">
-        <div class="postedAt">
-          Posted On:- <%= post.createdAt.toLocaleDateString() %>
-        </div>
-        <div class="view">
-         <a  href="/post/<%= post._id %> ">View </a>
-        </div>
-
-    </div>
+      
   </div>
+  <div class="cardFooter flex">
+    <div class="postedAt">
+      Posted On:- <%= post.createdAt.toLocaleDateString() %>
+    </div>
+    <div class="view">
+     <a  href="/post/<%= post._id %> ">View </a>
+    </div>
+
+</div>
 </div>
 
 <% }) %>

@@ -14,7 +14,8 @@
 body{
     font-family: "Poppins",sans-serif;
     color: var(--primary-text-color);
-    background-color: #466da1;
+    /* background-color: #333; */
+    background: radial-gradient(#fff,#cdf8ff) ;
 }
 
 a{
@@ -118,32 +119,37 @@ main{
 }
 .card {
     /* margin: 12px; */
-    
+    display:flex ;
+    flex-direction: column;
+    justify-content: space-between;
     width: 360px;
-    min-height: 474px;
+    min-height: 480px;
     max-height: 480px;
     box-shadow: 0 0 4px #0b0b0b;
     border-radius: 4px;
     cursor: pointer;
-    background-color: #00000080;
-    color: #BFA181;
+    background-color: white;
+    /* color: #BFA181; */
     overflow: hidden;
     transition: all 0.3s ease;
 }
 .card:hover{
     box-shadow: 1px 1px 8px #000000;
-    background-color: #f9fdff;
+    background-color: #00000080;
     color: black;
     transform: translateY(-2px);
 }
 .card-header img{
-    width:auto;
-    
+  
+    width:100%;
+    padding: 5px;
     height:180px;
     object-fit: cover;
 }
 .card-content{
     padding: 12px;
+    max-height: 180px;
+    min-height: 180px;
 }
 .contact-detail{
     margin-block:12px
@@ -178,6 +184,10 @@ main{
     display:block;
     padding-bottom: 25px;
 }
+.card-footer{
+    
+    
+   }
 .footer-container{
     text-align: center;
     padding: 10px;
