@@ -7,7 +7,7 @@ const postSchema=new mongoose.Schema({
     },
     image: {
         // data: Buffer,
-        type: String,
+        type: String
         // required:true
       },
       price:{

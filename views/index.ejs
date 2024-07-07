@@ -1,14 +1,16 @@
 <div class="cards-container container flex">
   <% data.forEach(post => { %>
    
- 
+    
   <div class="card">
     <div class="card-header">
       <!-- <img
-        src="https://rukminim2.flixcart.com/image/850/1000/xif0q/cycle/n/x/l/old-skool-26t-cycle-26-23-east-coast-115-single-speed-original-imagmzejgzzyd2ga.jpeg?q=90&crop=false/400x200" width="400px" height="200px"
+         
+        src="/uploads/<%= post.image %>" width="400px" height="200px"
         alt="product image"
         id="product-image"
       /> -->
+      <%= post.image %>
     </div>
     <div class="card-content">
       <h4 id="product-title">

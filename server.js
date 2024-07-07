@@ -7,7 +7,10 @@ const session=require('express-session')
 const MongoStore=require('connect-mongo')
 const bodyParser=require('body-parser')
 const app=express();
+const path = require('path');
 
+app.use(express.static(path.join(__dirname, 'public')));
+// app.use('/uploads', express.static(path.join(__dirname, 'public/uploads')));
 
 
 const connectDB=require('./server/config/db');
@@ -20,6 +23,8 @@ app.use(express.urlencoded({ extended: true })); // Add this line
 app.use(express.json());
 app.use(cookieParser());
 app.use(methodOverride('_method'));
+
+
 
 app.use(session({
     secret:'keyboard cat',
@@ -35,7 +40,7 @@ app.use(session({
 
 
 
- app.use(express.static('public'));
+
 
 //templating engine
 app.use(expressLayout);

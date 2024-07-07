@@ -1,18 +1,39 @@
 const express=require('express')
 const router=express.Router();
+const path = require('path');
 const post=require('../../models/post')
 const User=require('../../models/user')
 const bcrypt=require('bcrypt')
 const jwt=require('jsonwebtoken');
 const user = require('../../models/user');
+const multer=require('multer')
+
 
 const jwtSecret=process.env.JWT_SECRET; 
 const adminLayout='../views/layouts/admin.ejs';
+/*
+MiddleWare to upload image
+*/
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'public/uploads');
+  },
+  filename: function (req, file, cb) {
+    // const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
+    cb(null, `${ Date.now()}-${file.originalname} `)
+  }
+}) 
+
+const upload = multer({ storage: storage })
+
+
 
 /*
 MiddleWare to be stay login
-
 */
+
+
 const authMiddleware=(req,res,next)=>{
     const token=req.cookies.token;
 
@@ -184,12 +205,16 @@ router.get('/add-post',authMiddleware,async(req,res)=>{
 -->Admin-create new post 
 */
 
-router.post('/add-post',authMiddleware,async(req,res)=>{
-    
+router.post('/add-post',authMiddleware,upload.single('image'),async(req,res)=>{
+    // 
     try {
         const data=req.body;
+        // console.log(req.body);
+        // console.log(req.file.filename);
+
         try {
             const newPost=new post({
+               image:'/uploads/${req.file.filename}',
                title:data.title,
                price:data.price,
                number:data.number,

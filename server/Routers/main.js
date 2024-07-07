@@ -1,5 +1,6 @@
 const express=require('express')
 const router=express.Router();
+
 const post=require('../../models/post')
 
 //Router
@@ -15,7 +16,7 @@ router.get('',async(req,res)=>{
     }
     try {
         const data=await post.find();
-        // console.log(data)
+        console.log(data)
         res.render("index.ejs",{local,data});
     } catch (error) {
         console.log(error)
