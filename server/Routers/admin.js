@@ -17,11 +17,11 @@ MiddleWare to upload image
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, 'public/uploads');
+    cb(null, 'public/images');
   },
   filename: function (req, file, cb) {
     // const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
-    cb(null, `${ Date.now()}-${file.originalname} `)
+    cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
   }
 }) 
 
@@ -214,7 +214,7 @@ router.post('/add-post',authMiddleware,upload.single('image'),async(req,res)=>{
 
         try {
             const newPost=new post({
-               image:'/uploads/${req.file.filename}',
+               image:`images/${req.file.filename}`,
                title:data.title,
                price:data.price,
                number:data.number,

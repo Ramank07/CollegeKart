@@ -16,7 +16,7 @@ router.get('',async(req,res)=>{
     }
     try {
         const data=await post.find();
-        console.log(data)
+        // console.log(data)
         res.render("index.ejs",{local,data});
     } catch (error) {
         console.log(error)
