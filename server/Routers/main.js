@@ -25,6 +25,7 @@ router.get('',async(req,res)=>{
         res.render("index.ejs",{local,data});
     } catch (error) {
         console.log(error)
+        res.status(500).send('Internal server error');
     }
     
 });
@@ -49,6 +50,7 @@ router.get('/post/:id',async(req,res)=>{
         res.render("post",{local,data});
     } catch (error) {
         console.log(error)
+        res.status(500).send('Internal server error');
     }
     
 });

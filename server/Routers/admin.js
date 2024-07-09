@@ -38,7 +38,7 @@ const authMiddleware=(req,res,next)=>{
     const token=req.cookies.token;
 
     if(!token){
-        res.redirect('/admin')
+        return res.redirect('/admin')
         // return res.status(401).json({message:'unathorised'})
     }
 
@@ -47,7 +47,7 @@ const authMiddleware=(req,res,next)=>{
         req.userId=decoded.userId;
         next();
     } catch (error) {
-        res.redirect('/admin')
+       return res.redirect('/admin')
     }
     
 
@@ -73,6 +73,7 @@ router.get('/admin',async(req,res)=>{
         res.render('admin/signin.ejs',{local,layout:adminLayout});
     } catch (error) {
         console.log(error)
+        res.status(500).send('Internal server error');
     }
     
 });
@@ -93,6 +94,7 @@ router.get('/register',async(req,res)=>{
         res.render('admin/register.ejs',{local,layout:adminLayout});
     } catch (error) {
         console.log(error)
+        res.status(500).send('Internal server error');
     }
     
 });
@@ -153,6 +155,7 @@ router.get('/dashboard',authMiddleware,async(req,res)=>{
       
     } catch (error) {
      console.log(error)
+     res.status(500).send('Internal server error');
     }
  });
 
@@ -198,6 +201,7 @@ router.get('/add-post',authMiddleware,async(req,res)=>{
       
     } catch (error) {
      console.log(error)
+     res.status(500).send('Internal server error');
     }
  });
 
@@ -228,12 +232,12 @@ router.post('/add-post',authMiddleware,upload.single('image'),async(req,res)=>{
             return res.redirect('/dashboard')
         } catch (error) {
             console.log(error);
+            res.status(500).send('Internal server error');
         }
-      
-     return res.redirect('/dashboard');
-      
+   
     } catch (error) {
      console.log(error)
+     res.status(500).send('Internal server error');
     }
  });
 
@@ -259,6 +263,7 @@ router.get('/edit-post/:id', authMiddleware, async (req, res) => {
   
     } catch (error) {
       console.log(error);
+      res.status(500).send('Internal server error');
     }
   
   });
@@ -284,6 +289,7 @@ router.get('/edit-post/:id', authMiddleware, async (req, res) => {
   
     } catch (error) {
       console.log(error);
+      res.status(500).send('Internal server error');
     }
   
   });
@@ -305,6 +311,7 @@ router.get('/edit-post/:id', authMiddleware, async (req, res) => {
       return res.redirect('/dashboard');
     } catch (error) {
       console.log(error);
+      res.status(500).send('Internal server error');
     }
   
   });
