@@ -141,7 +141,8 @@ router.get('/dashboard',authMiddleware,async(req,res)=>{
           title: 'Dashboard',
           description:'dashboard of admin'
       }
-      const data= await post.find();
+      const data=await post.aggregate([{$sort: {createdAt:-1}}]);
+
     //   console.log(data);
       res.render('admin/dashboard',{
          local,

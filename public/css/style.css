@@ -1,5 +1,6 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bree+Serif&family=EB+Garamond:ital,wght@0,500;1,800&display=swap');
 *{
     margin:0;
     padding: 0;
@@ -407,4 +408,55 @@ label {
 .delete-btn:hover{
     background: rgb(61, 23, 23);
     
+}
+
+/* card page */
+
+
+.post-cardcontainer{
+    background-color: #00000080;
+    padding: 10px;
+    max-width:900px ;
+    max-height: 800px;
+    text-align: center ;
+    margin: 5em auto;
+    box-shadow: 0 15px 30px 1px grey;
+    /* overflow: auto; */
+    
+}
+
+.post-cardcontent{
+    
+    padding: 10px;
+    text-align: left;
+    /* min-width:400px ;
+    max-height: 800px; */
+    /* box-shadow: 0 15px 30px 1px grey; */
+}
+.post-cardheader{
+    background-color: #132532;
+    padding: 10px;
+    /* min-width:400px ;
+    max-height: 800px; */
+    overflow: hidden;
+    box-shadow: 0 15px 30px 1px grey;
+}
+.post-flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.post-para{
+    padding: 10px;
+}
+.title{
+    margin: 10px;
+}
+.post-h1{
+color: #0b0b0b;
+display: inline;
+font-size: 2rem;
+border-bottom: 4px solid  #00000080;
+
 }

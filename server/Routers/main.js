@@ -15,7 +15,12 @@ router.get('',async(req,res)=>{
         description:" buy and sell something "
     }
     try {
-        const data=await post.find();
+          
+
+
+        const data=await post.aggregate([{$sort: {createdAt:-1}}]);
+
+        // const data=await post.find();
         // console.log(data)
         res.render("index.ejs",{local,data});
     } catch (error) {
@@ -40,7 +45,7 @@ router.get('/post/:id',async(req,res)=>{
         title:data.title,
         desrcription:" buy and sell something "
     }
-       
+    //    console.log(data);
         res.render("post",{local,data});
     } catch (error) {
         console.log(error)

@@ -1,4 +1,55 @@
-<h1>create specific post</h1>
+<div class=" post-cardcontainer  ">
+    <div class="title">
+         <h1 class="post-h1">Product</h1>
+        </div>
+        <% const date = new Date(data.createdAt);%>
 
-<h3><%= data.title %></h3>
-<p><%= data.description %></p>
+        <% const options = { weekday: 'short', month: 'short', day: '2-digit' };%>
+        <% const formattedDate = date.toLocaleDateString('en-US', options); %>
+
+
+        <% const Update = new Date(data.updatedAt);%>
+
+        <% const Upoptions = { weekday: 'short', month: 'short', day: '2-digit' };%>
+        <% const updatedAt = Update.toLocaleDateString('en-US', Upoptions); %>
+
+    <div class="post-para ">
+      <div class="post-flex">
+      <div class=" post-cardcontent ">
+        <h4 id="product-title">
+          <ul>
+            <li>Title: <%=data.title  %> <li>
+            <li>Price:<%= data.price %>  </li>
+            <li>contact: <%= data.email %></li>
+            <li>college: <%= data.college  %></li> 
+            <li>UPI: <%= data.upiId %></li>
+            <li>created: <%= formattedDate %></li>
+            <li>Updated: <%=updatedAt  %></li>
+            
+          </ul>
+        </h4>
+        
+        
+        
+    </div>
+      <div class=" post-cardheader">
+        <img
+          src="<%=data.image  %>"
+          width="400px" height="200px"
+          alt="product image"
+          id="product-image"
+        />
+      </div> 
+    </div>
+       
+      <p class="post-para" id="">
+        <p><%=data.description  %></p>
+      </p>
+    
+  </div>
+  
+ 
+  </div>
+  
+    
+

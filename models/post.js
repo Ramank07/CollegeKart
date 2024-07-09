@@ -7,14 +7,18 @@ const postSchema=new mongoose.Schema({
     },
     image: {
         // data: Buffer,
-        type: String
-        // required:true
+        type: String,
+        required:true
       },
       price:{
         type:Number,
         required:true
       },
       number:{
+        type:String,
+        required:true
+      },
+      college:{
         type:String,
         required:true
       },

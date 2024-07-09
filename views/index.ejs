@@ -1,11 +1,15 @@
 <div class="cards-container container flex">
   <% data.forEach(post => { %>
    
-    
+    <% const date = new Date(post.createdAt);%>
+
+    <% const options = { weekday: 'short', month: 'short', day: '2-digit' };%>
+    <% const formattedDate = date.toLocaleDateString('en-US', options); %>
+
   <div class="card">
     <div class="card-header">
       <img
-        src="<%= post.image %> "width="400px" height="200px"
+        src="<%= post.image %> " width="400px" height="200px"
         alt="product image"
         id="product-image"
       />
@@ -26,7 +30,7 @@
   </div>
   <div class="cardFooter flex">
     <div class="postedAt">
-      Posted On:- <%= post.createdAt.toLocaleDateString() %>
+      Posted On:- <%= formattedDate %>
     </div>
     <div class="view">
      <a  href="/post/<%= post._id %> ">View </a>
