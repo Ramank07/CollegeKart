@@ -1,10 +1,15 @@
  const mongoose=require('mongoose');
+ const { Schema } = mongoose; 
 
 const postSchema=new mongoose.Schema({
     title:{
         type:String,
         required:true
     },
+    userid:{
+       type: Schema.Types.ObjectId,
+       ref: 'user' 
+      },
     image: {
         // data: Buffer,
         type: String,

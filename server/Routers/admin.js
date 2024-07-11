@@ -45,6 +45,7 @@ const authMiddleware=(req,res,next)=>{
     try {
         const decoded=jwt.verify(token,jwtSecret);
         req.userId=decoded.userId;
+       
         next();
     } catch (error) {
        return res.redirect('/admin')
@@ -143,9 +144,12 @@ router.get('/dashboard',authMiddleware,async(req,res)=>{
           title: 'Dashboard',
           description:'dashboard of admin'
       }
-      const data=await post.aggregate([{$sort: {createdAt:-1}}]);
-
-    //   console.log(data);
+      //const data=await post.aggregate([{$sort: {createdAt:-1}}]);
+      const userId = req.userId;
+      // console.log('userId: ',userId)
+      const data= await post.find({userid:userId });
+       
+      // console.log(data);
       res.render('admin/dashboard',{
          local,
          data,
@@ -224,10 +228,13 @@ router.post('/add-post',authMiddleware,upload.single('image'),async(req,res)=>{
                price:data.price,
                number:data.number,
                upiId:data.title,
+               college:data.college,
+               userid:req.userId,
                description:data.description
 
 
             });
+            console.log(newPost);
             await post.create(newPost);
             return res.redirect('/dashboard')
         } catch (error) {

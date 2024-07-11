@@ -4,6 +4,7 @@
     <a href="/add-post" class="add-post search-button"> + Add Post</a>
 </div>
 <div class="cards-container container flex">
+  <% if (data && data.length > 0) { %>
     <% data.forEach(post => { %>
      
    
@@ -56,6 +57,9 @@
         </div>
   
   <% }) %>
+  <% } else { %>
+    <h1>No posts available.</h1>
+<% } %>
   </div>
   
     
