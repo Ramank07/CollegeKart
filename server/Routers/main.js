@@ -55,6 +55,35 @@ router.get('/post/:id',async(req,res)=>{
     
 });
 
+router.post('/search', async (req, res) => {
+    try {
+      const local = {
+        title: "Search",
+        description: "Simple Blog created with NodeJs, Express & MongoDb."
+      }
+  
+      let searchTerm = req.body.searchTerm;
+      const searchNoSpecialChar = searchTerm.replace(/[^a-zA-Z0-9 ]/g, "")
+  
+      const data = await post.find({
+        $or: [
+          { title: { $regex: new RegExp(searchNoSpecialChar, 'i') }},
+          { body: { $regex: new RegExp(searchNoSpecialChar, 'i') }}
+        ]
+      });
+  
+      res.render("search", {
+        data,
+        local
+        // currentRoute: '/'
+      });
+  
+    } catch (error) {
+      console.log(error);
+    }
+  
+  });
+
 
 // function insertPostData() {
 //     post.insertMany([

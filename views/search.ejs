@@ -1,0 +1,61 @@
+<div class="  container flex dashboard-flex ">
+    <h2>Search Results</h2>
+    
+</div>
+<div class="cards-container container flex">
+    <% if (data && data.length > 0) { %>
+    <% data.forEach(post => { %>
+     
+      <% const date = new Date(post.createdAt);%>
+  
+      <% const options = { weekday: 'short', month: 'short', day: '2-digit' };%>
+      <% const formattedDate = date.toLocaleDateString('en-US', options); %>
+  
+    <div class="card">
+      <div class="card-header">
+        <img
+          src="<%= post.image %> " width="400px" height="200px"
+          alt="product image"
+          id="product-image"
+        />
+      </div>  
+      
+      <div class="card-content">
+        <h4 id="product-title">
+          <ul>
+            <li>Title: <%=post.title %> <li>
+            <li>Price: <%= post.price %> </li>
+          </ul>
+        </h4>
+        
+        <p class="product-desc" id="product-desc">
+         <%= post.description %>
+        </p>
+        
+    </div>
+    <div class="cardFooter flex">
+      <div class="postedAt">
+        Posted On:- <%= formattedDate %>
+      </div>
+      <div class="view">
+       <a  href="/post/<%= post._id %> ">View </a>
+      </div>
+  
+  </div>
+  </div>
+  
+  <% }) %>
+  <% } else { %>
+    <h1>No posts available.</h1>
+<% } %>
+  </div>
+  
+    
+  
+  
+   
+  
+  
+  
+  
+ 

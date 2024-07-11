@@ -27,7 +27,7 @@ app.use(methodOverride('_method'));
 
 
 app.use(session({
-    secret:'keyboard cat',
+    secret:process.env.JWT_SECRET,
     resave:false,
     saveUninitialized:true,
     store:MongoStore.create({
@@ -45,6 +45,7 @@ app.use(session({
 //templating engine
 app.use(expressLayout);
 app.set('layout','./layouts/main');
+
 app.set('view engine','ejs');
 
 const PORT=3000||process.env.PORT;
