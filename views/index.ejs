@@ -1,4 +1,5 @@
 <div class="cards-container container flex">
+  <% if (data && data.length > 0) { %>
   <% data.forEach(post => { %>
    
     <% const date = new Date(post.createdAt);%>
@@ -40,6 +41,9 @@
 </div>
 
 <% }) %>
+<% } else { %>
+  <h1>No posts available.</h1>
+<% } %>
 </div>
 
   

@@ -234,7 +234,7 @@ router.post('/add-post',authMiddleware,upload.single('image'),async(req,res)=>{
 
 
             });
-            console.log(newPost);
+            // console.log(newPost);
             await post.create(newPost);
             return res.redirect('/dashboard')
         } catch (error) {
