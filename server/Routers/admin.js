@@ -227,7 +227,7 @@ router.post('/add-post',authMiddleware,upload.single('image'),async(req,res)=>{
                title:data.title,
                price:data.price,
                number:data.number,
-               upiId:data.title,
+               upiId:data.upiId,
                college:data.college,
                userid:req.userId,
                description:data.description
@@ -261,7 +261,7 @@ router.get('/edit-post/:id', authMiddleware, async (req, res) => {
       };
   
       const data = await post.findOne({ _id: req.params.id });
-  
+      // console.log('data-g',data);
       res.render('admin/edit-post', {
         local,
         data,
@@ -280,18 +280,26 @@ router.get('/edit-post/:id', authMiddleware, async (req, res) => {
    * PUT /
    * Admin - Edit  Post
   */
-  router.put('/edit-post/:id', authMiddleware, async (req, res) => {
+  router.put('/edit-post/:id', authMiddleware, upload.single('image'),async (req, res) => {
     try {
       
-      await post.findByIdAndUpdate(req.params.id, {
-            title: req.body.title,
-               price: req.body.price,
-               number: req.body.number,
-               upiId: req.body.title,
-               description: req.body.description,
-        updatedAt: Date.now()
-      });
-  
+      const updateData = {
+        title: req.body.title,
+        price: req.body.price,
+        number: req.body.number,
+        upiId: req.body.upiId,
+        college: req.body.college,
+        description: req.body.description,
+        updatedAt: Date.now(),
+      };
+
+      if (req.file) {
+        updateData.image = `images/${req.file.filename}`;
+      }
+
+      await post.findByIdAndUpdate(req.params.id,updateData );
+      
+      // console.log('data-e',req.body);
     return  res.redirect('/dashboard');
   
     } catch (error) {
