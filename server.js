@@ -6,8 +6,10 @@ const cookieParser=require('cookie-parser')
 const session=require('express-session')
 const MongoStore=require('connect-mongo')
 const bodyParser=require('body-parser')
-const app=express();
+const multer=require('multer')
 const path = require('path');
+const app=express();
+
 
 app.use(express.static(path.join(__dirname, 'public')));
 // app.use('/uploads', express.static(path.join(__dirname, 'public/uploads')));
