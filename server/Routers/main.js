@@ -85,6 +85,19 @@ router.post('/search', async (req, res) => {
   });
 
 
+  router.get('/about',(req,res)=>{
+    const local={
+        title:"/about"
+    }
+    res.render("about",{
+       local
+    });
+});
+
+
+module.exports=router;
+
+
 // function insertPostData() {
 //     post.insertMany([
 //         {
@@ -151,14 +164,3 @@ router.post('/search', async (req, res) => {
 
 
 
-router.get('/about',(req,res)=>{
-    const local={
-        title:"/about"
-    }
-    res.render("about",{
-       local
-    });
-});
-
-
-module.exports=router;
