@@ -22,6 +22,7 @@ Application functionality
 5.admin can delete /post /update product
 6.user can change password
 
+//future planning
 
 7.can chat with each other->soket.io
 
