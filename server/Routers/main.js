@@ -47,8 +47,9 @@ router.get('/post/:id',async(req,res)=>{
         title:data.title,
         desrcription:" buy and sell something "
     }
+    const isLoggedIn = req.cookies['token'] ? true : false;
     //    console.log(data);
-        res.render("post",{local,data});
+        res.render("post",{local,data,isLoggedIn});
     } catch (error) {
         console.log(error)
         res.status(500).send('Internal server error');
@@ -65,7 +66,7 @@ router.post('/search', async (req, res) => {
   
       let searchTerm = req.body.searchTerm;
       const searchNoSpecialChar = searchTerm.replace(/[^a-zA-Z0-9 ]/g, "")
-  
+      const isLoggedIn = req.cookies['token'] ? true : false;
       const data = await post.find({
         $or: [
           { title: { $regex: new RegExp(searchNoSpecialChar, 'i') }},
@@ -75,7 +76,8 @@ router.post('/search', async (req, res) => {
   
       res.render("search", {
         data,
-        local
+        local,
+        isLoggedIn
         // currentRoute: '/'
       });
   
@@ -90,8 +92,10 @@ router.post('/search', async (req, res) => {
     const local={
         title:"/about"
     }
+    const isLoggedIn = req.cookies['token'] ? true : false;
     res.render("about",{
-       local
+       local,
+       isLoggedIn
     });
 });
 

@@ -13,12 +13,15 @@
             <% if (!isLoggedIn) { %>
               <li class="hover-link nav_item">
                 <a href="/admin">Login</a></li>
-              <li class="hover-link nav_item">
-
+              
           
                 <% } %>
-                <!-- <%- isLoggedIn %> -->
-            <a href="/dashboard">Profile</a></li>
+                <% if (isLoggedIn) { %>
+                <li class="hover-link nav_item">
+                  <a href="/dashboard">Profile</a></li>
+                  <% } %>
+               
+           
           <li class="hover-link nav_item">
             <a href="/about">About us</a></li>
         </ul>
