@@ -7,7 +7,7 @@ const bcrypt=require('bcrypt')
 const jwt=require('jsonwebtoken');
 const user = require('../../models/user');
 const multer=require('multer')
-// const multer=require('multer')
+
 
 const jwtSecret=process.env.JWT_SECRET; 
 const adminLayout='../views/layouts/admin.ejs';

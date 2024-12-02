@@ -22,7 +22,8 @@ router.get('',async(req,res)=>{
 
         // const data=await post.find();
         // console.log(data)
-        res.render("index.ejs",{local,data});
+        const isLoggedIn = req.cookies['token'] ? true : false;
+        res.render("index.ejs",{local,data,isLoggedIn});
     } catch (error) {
         console.log(error)
         res.status(500).send('Internal server error');
