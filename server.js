@@ -28,22 +28,6 @@ app.use(methodOverride('_method'));
 
 
 
-app.use(session({
-    secret:process.env.JWT_SECRET,
-    resave:false,
-    saveUninitialized:true,
-    store:MongoStore.create({
-        mongoUrl:process.env.MONGODB_URI
-    }),
-}))
-
-
-
-
-
-
-
-
 //templating engine
 app.use(expressLayout);
 app.set('layout','./layouts/main');
